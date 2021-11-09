@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import s from './Header.module.css';
+import {PATH} from "./AllRoutes";
+import {NavLink} from 'react-router-dom';
 
 function Header() {
     let [menuMode, setMenuMode] = React.useState<boolean>(true);
@@ -14,10 +15,13 @@ function Header() {
 
     return (
         <nav className={s.menu}>
-            <div className={menuClass} >
-                <span className={s.span_link}><Link to={'/pre-junior'}>pre-junior</Link></span>
-                <span className={s.span_link}><Link to={'/junior'}>junior</Link></span>
-                <span className={s.span_link}><Link to={'/junior-plus'}>junior-plus</Link></span>
+            <div className={menuClass}>
+                <span><NavLink to={PATH.PRE_JUNIOR}
+                               className={(navData) => navData.isActive ? s.active : s.span_link}>pre-junior</NavLink></span>
+                <span><NavLink to={PATH.JUNIOR}
+                               className={(navData) => navData.isActive ? s.active : s.span_link}>junior</NavLink></span>
+                <span><NavLink to={PATH.JUNIOR_PLUS}
+                               className={(navData) => navData.isActive ? s.active : s.span_link}>junior-plus</NavLink></span>
             </div>
             <div className={buttonClass} onClick={controllMenu}></div>
         </nav>
