@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import s from './Error404.module.css';
+import error from './../../../images/not_found.jpg'
 
 function Error404() {
     return (
-        <div>
-            <div>404</div>
-            <div>Page not found!</div>
-            <div>—ฅ/ᐠ.̫ .ᐟ\ฅ—</div>
+        <div className={s.error_page}>
+            <div className={s.error_img}>
+                <img src={error} alt=""/>
+            </div>
         </div>
     )
 }
